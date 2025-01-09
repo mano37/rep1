@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: _checkBackend,
-              child: Text('Checking Backend...'),
+              child: Text('Check Backend'),
             ),
           ],
         ),
