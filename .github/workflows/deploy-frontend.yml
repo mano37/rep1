@@ -13,30 +13,33 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Java update
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
+    #   - name: Java update
+    #     uses: actions/setup-java@v4
+    #     with:
+    #       java-version: '17'
+    #       distribution: 'temurin'
 
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.27.1"
-          cache: true
+    #   - name: Install Flutter
+    #     uses: subosito/flutter-action@v2
+    #     with:
+    #       flutter-version: "3.27.1"
+    #       cache: true
 
-      - name: Build APK
-        run: |
-            cd frontend
-            flutter build apk --release
+    #   - name: Build APK
+    #     run: |
+    #         cd frontend
+    #         flutter build apk --release
         
-      - name : check secrets
-        run : echo "${{ secrets.CREDINTIAL_FILE_CONTENT }}"
-        
-      - name: upload artifact to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-          appId: ${{secrets.FIREBASE_APP_ID}}
-          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-          groups: tester
-          file: build/app/outputs/flutter-apk/app-release.apk
+      - name: check secrets
+        run: echo "${{ secrets.CREDINTIAL_FILE_CONTENT }}"
+
+      - name: check secrets2
+        run: echo "${{ secrets.FIREBASE_APP_ID }}"
+
+    #   - name: upload artifact to Firebase App Distribution
+    #     uses: wzieba/Firebase-Distribution-Github-Action@v1
+    #     with:
+    #       appId: ${{secrets.FIREBASE_APP_ID}}
+    #       serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+    #       groups: tester
+    #       file: build/app/outputs/flutter-apk/app-release.apk
