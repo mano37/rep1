@@ -19,7 +19,9 @@ jobs:
           flutter-version: "3.27.1"
 
       - name: Build APK
-        run: flutter build apk --release
+        run: |
+            cd frontend
+            flutter build apk --release
 
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
