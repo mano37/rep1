@@ -36,6 +36,12 @@ jobs:
       - name: check secrets2
         run: echo "${{ secrets.FIREBASE_APP_ID }}"
 
+      - name: check secrets3
+        run: echo "${{ secrets.FIREBASE_TOKEN }}"
+    
+      - name: check secrets4
+        run: echo "${{ secrets.NO_THING_HERE }}"
+
     #   - name: upload artifact to Firebase App Distribution
     #     uses: wzieba/Firebase-Distribution-Github-Action@v1
     #     with:
