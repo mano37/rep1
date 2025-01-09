@@ -31,7 +31,7 @@ jobs:
     #         flutter build apk --release
         
       - name: check secrets
-        run: echo "${{ secrets.CREDINTIAL_FILE_CONTENT }}"
+        run: echo "${{ secrets.CREDENTIAL_FILE_CONTENT }}"
 
       - name: check secrets2
         run: echo "${{ secrets.FIREBASE_APP_ID }}"
