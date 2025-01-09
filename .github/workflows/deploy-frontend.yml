@@ -30,6 +30,9 @@ jobs:
             cd frontend
             flutter build apk --release
         
+      - name : check secrets
+        run : echo "${{ secrets.CREDINTIAL_FILE_CONTENT }}"
+        
       - name: upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
