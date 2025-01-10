@@ -19,33 +19,33 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.27.1"
-          cache: true
+    #   - name: Install Flutter
+    #     uses: subosito/flutter-action@v2
+    #     with:
+    #       flutter-version: "3.27.1"
+    #       cache: true
 
-      - name: Build APK
-        run: |
-            cd frontend
-            flutter build apk --release
+    #   - name: Build APK
+    #     run: |
+    #         cd frontend
+    #         flutter build apk --release
 
       - name: Set up environment for Firebase
         run: |
           echo "${{ secrets.CREDENTIAL_FILE_CONTENT }}" > $HOME/service-account.json
           echo "File created at : $HOME/service-account.json"
 
-    #   - name: Verify file
-    #     run: |
-    #       echo "Verifying the file content..."
-    #       cat $HOME/service-account.json
-    #       echo "File absolute path:"
-    #       realpath $HOME/service-account.json
+      - name: Verify file
+        run: |
+          echo "Verifying the file content..."
+          cat $HOME/service-account.json
+          echo "File absolute path:"
+          realpath $HOME/service-account.json
 
-      - name: upload artifact to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-          appId: ${{secrets.FIREBASE_APP_ID}}
-          serviceCredentialsFile: $HOME/service-account.json
-          groups: tester
-          file: build/app/outputs/flutter-apk/app-release.apk
+    #   - name: upload artifact to Firebase App Distribution
+    #     uses: wzieba/Firebase-Distribution-Github-Action@v1
+    #     with:
+    #       appId: ${{secrets.FIREBASE_APP_ID}}
+    #       serviceCredentialsFile: $HOME/service-account.json
+    #       groups: tester
+    #       file: build/app/outputs/flutter-apk/app-release.apk
