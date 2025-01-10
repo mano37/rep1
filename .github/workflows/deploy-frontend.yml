@@ -35,11 +35,12 @@ jobs:
 
       - name: Set up environment for Firebase
         run: |
+          echo "${{ secrets.CREDENTIAL_FILE_CONTENT }}" 
           echo "${{ secrets.CREDENTIAL_FILE_CONTENT }}" > $HOME/service-account.json
           echo "File created at : $HOME/service-account.json"
           export GOOGLE_APPLICATION_CREDENTIALS="$HOME/service-account.json"
           echo $GOOGLE_APPLICATION_CREDENTIALS
-          
+
       - name: Verify file
         run: |
           firebase projects:list
