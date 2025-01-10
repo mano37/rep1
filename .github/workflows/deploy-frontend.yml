@@ -40,6 +40,7 @@ jobs:
           name: "service-account.json"
           json: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
 
+          
       - name: Check file
         run: cat service-account.json
           
