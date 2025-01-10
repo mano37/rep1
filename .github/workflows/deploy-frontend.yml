@@ -35,7 +35,7 @@ jobs:
 
       - name: create-json
         id: create-json
-        uses: jsdaniell/create-json@1.2.3
+        uses: jsdaniell/create-json@v1.2.3
         with:
           name: "service-account.json"
           json: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
