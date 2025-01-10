@@ -39,9 +39,13 @@ jobs:
         with:
           name: "service-account.json"
           json: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+
+      - name: List files in $GITHUB_WORKSPACE
+        run: ls -la $GITHUB_WORKSPACE
+          
       - name: Set up environment for Firebase
         run: |
-          export GOOGLE_APPLICATION_CREDENTIALS="service-account.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$GITHUB_WORKSPACE/service-account.json"
           echo $GOOGLE_APPLICATION_CREDENTIALS
 
       - name: Verify file
