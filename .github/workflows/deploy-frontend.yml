@@ -37,11 +37,11 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@1.1.2
         with:
-          name: "$HOME/service-account.json"
+          name: "service-account.json"
           json: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
       - name: Set up environment for Firebase
         run: |
-          export GOOGLE_APPLICATION_CREDENTIALS="$HOME/service-account.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="service-account.json"
           echo $GOOGLE_APPLICATION_CREDENTIALS
 
       - name: Verify file
