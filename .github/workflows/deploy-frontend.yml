@@ -2,8 +2,8 @@ name: Frontend Deployment
 
 on:
   push:
-    tags: 
-      - 'v.*'
+    branches: 
+      - main
 
 jobs:
   build:
